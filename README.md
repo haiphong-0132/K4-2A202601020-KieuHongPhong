@@ -12,21 +12,20 @@ gọi được, có bảo mật, có giới hạn chi phí, và không sập khi
 | Được phép | Không được phép |
 |-----------|-----------------|
 | Đọc tài liệu, Stack Overflow, tra AI để hiểu khái niệm | Sao chép code của học viên khác |
-| Hỏi giảng viên/trợ giảng khi bị kẹt | Dùng chung repo, chung commit history |
+| Hỏi Lab Coach khi bị kẹt | Dùng chung repo, chung commit history |
 | Thảo luận **cách tiếp cận** với bạn cùng lớp | Nhờ người khác làm hộ, kể cả một phần |
 | Dùng AI để giải thích lỗi | Nộp code mà bạn không giải thích được |
 
-**Cách kiểm tra:** giảng viên sẽ chọn ngẫu nhiên 2–3 học viên mỗi buổi để hỏi
+**Cách kiểm tra:** Lab Coach sẽ chọn ngẫu nhiên học viên để hỏi
 trực tiếp về code trong bài nộp. Không giải thích được phần mình viết → điểm
 phần đó bị hủy.
 
 **Phát hiện hai bài trùng nhau bất thường (cùng lỗi chính tả, cùng comment,
 cùng cấu trúc lạ): cả hai bài đều 0 điểm**, không phân biệt ai chép của ai.
 
-> Lưu ý: bài của các khóa trước đang công khai trên GitHub, nhưng **hợp đồng API
-> của bản K4 khác hẳn** — khác endpoint, khác kiểu xác thực, khác thuật toán
+> Lưu ý: bài của các khóa trước đang công khai trên GitHub, nhưng **nội dung của bản K4 khác so với các bài đó** — khác endpoint, khác kiểu xác thực, khác thuật toán
 > rate limit, khác tên trường trong response. Chép về sẽ rớt gần như toàn bộ
-> test, và giảng viên nhìn ra ngay.
+> test, và Lab Coach nhìn ra ngay.
 
 ---
 
@@ -50,21 +49,20 @@ DAY12-<Mã học viên>-<Họ và Tên>
 | 2A202600280 — Nguyễn Văn An | `DAY12-2A202600280-NguyenVanAn` |
 | 2A202601111 — Trần Thị Bích Hà | `DAY12-2A202601111-TranThiBichHa` |
 
-**Sai tên repo = trừ 5 điểm.** Đây là cách duy nhất để giảng viên biết bài của ai
+**Sai tên repo = trừ 5 điểm.** Đây là cách duy nhất để Lab Coach biết bài của ai
 trong khoảng 1000 repo.
 
 ### Tạo repo và bắt đầu làm
 
 ```bash
-# 1. Clone repo lab về máy
-git clone <URL repo lab của lớp> DAY12-2A202600280-NguyenVanAn
+# 1. Fork repo lab về và đổi tên theo cú pháp bên trên
+# 2. Clone repo lab về máy
+git clone <URL repo bạn đã fork>
 cd DAY12-2A202600280-NguyenVanAn
-
-# 2. Trỏ về repo CỦA BẠN (tạo repo rỗng trên GitHub trước, đúng tên ở trên)
-git remote set-url origin https://github.com/<username>/DAY12-2A202600280-NguyenVanAn.git
-
-# 3. Đẩy lên để có mốc xuất phát
-git push -u origin main
+# 3. Commit và Push khi hoàn thiện bài lab
+git add .
+git commit -m "Checkpoint 0"
+git push origin main
 ```
 
 > Commit sau mỗi checkpoint. Lịch sử commit cho thấy bạn tự làm — một commit
@@ -100,7 +98,7 @@ Sau buổi lab này, bạn sẽ:
 
 **Cách dùng checkpoint:** đến mốc giờ nào thì chạy lệnh của checkpoint đó. Xanh
 hết → sang block sau. Còn đỏ → đọc thông báo lỗi (mỗi test đều ghi rõ sai ở đâu
-và vì sao điều đó quan trọng), sửa, chạy lại. Kẹt quá 10 phút thì gọi trợ giảng
+và vì sao điều đó quan trọng), sửa, chạy lại. Kẹt quá 10 phút thì gọi Lab Coach
 và **đi tiếp block sau** — làm được đến đâu có điểm đến đó, đừng để tắc một chỗ
 mà mất cả các block còn lại.
 
@@ -157,7 +155,7 @@ curl -X POST https://<domain>/chat \
 - Git + tài khoản GitHub
 - Tài khoản Railway hoặc Render (miễn phí, đăng ký ~5 phút — cần cho CP5)
 
-Không cần API key của OpenAI: lab dùng **mock LLM** chạy offline.
+Không cần API key của OpenAI hoặc các bên cung cấp API khác: lab dùng **mock LLM** chạy offline.
 
 ### Môi trường ảo & thư viện
 
@@ -298,10 +296,9 @@ git commit -m "Hoàn thành lab Day 12"
 git push
 ```
 
-Nộp **link repository** lên LMS. Repo phải ở chế độ public, hoặc mời tài khoản
-giảng viên vào với quyền đọc.
+Nộp **link repository** lên codelab. Repo phải ở chế độ public.
 
-**Hạn nộp:** cuối buổi học, 18h00 cùng ngày.
+**Hạn nộp:** 23h59 cùng ngày.
 
 ---
 

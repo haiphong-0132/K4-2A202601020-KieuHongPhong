@@ -3,7 +3,7 @@
 > **Bài làm cá nhân.** Xem quy định và cách đặt tên repo ở [README.md](README.md).
 >
 > Mỗi block kết thúc bằng một checkpoint. Đến giờ thì chạy lệnh checkpoint,
-> xanh hết mới sang block sau. Kẹt quá 10 phút → gọi trợ giảng và đi tiếp,
+> xanh hết mới sang block sau. Kẹt quá 10 phút → gọi Lab Coach và đi tiếp,
 > đừng đứng lại một chỗ.
 
 **Mục lục**
@@ -112,7 +112,7 @@ Một dòng — không `indent`. Cloud gom log theo dòng; JSON xuống dòng l�
 bị vỡ thành nhiều mảnh vô nghĩa.
 
 Tên khóa `severity` viết hoa không phải ngẫu nhiên: đó là khóa Google Cloud
-Logging đọc để tô màu và lọc theo mức độ. Log platform nào cũng có một quy ước
+Logging đọc để lọc theo mức độ. Log platform nào cũng có một quy ước
 tương tự — dùng đúng quy ước thì được cả hệ sinh thái công cụ hỗ trợ miễn phí.
 
 Có định dạng này rồi thì bạn hỏi được những câu mà `print()` không trả lời nổi:
