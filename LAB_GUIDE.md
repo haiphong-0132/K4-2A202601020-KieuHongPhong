@@ -569,7 +569,7 @@ Variables). Railway tự set `PORT` — đừng ghi đè.
 
 ### Đường Render
 
-1. Push repo lên GitHub (repo đúng tên `DAY12-...`)
+1. Push repo lên GitHub (repo đúng tên `K4-DAY12-...`)
 2. [render.com](https://render.com) → **New** → **Blueprint** → chọn repo
 3. Render đọc `render.yaml` có sẵn, tạo cả web service lẫn Redis
 4. Điền `API_TOKEN` khi Render hỏi (khai báo `sync: false` nghĩa là Render
