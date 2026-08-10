@@ -598,8 +598,20 @@ trường, và dán output các lệnh trên. Chụp màn hình dashboard vào `
 **Chỉ ghi TÊN biến, không dán giá trị `API_TOKEN`.** Repo công khai, dán vào
 là mất token — và test CP5 sẽ báo lỗi đúng chỗ đó.
 
-Muốn test luôn cả đường có xác thực (điểm cộng): thêm `DEPLOY_API_TOKEN=<token>`
-vào `.env` ở máy bạn (file này không được commit).
+**Điểm cộng — test luôn cả đường có xác thực.** Thêm vào `.env` ở máy bạn
+(file này không được commit):
+
+```bash
+DEPLOY_API_TOKEN=<đúng giá trị API_TOKEN bạn đã set trên dashboard>
+```
+
+`DEPLOY_API_TOKEN` là token của **chính service bạn vừa deploy**, không phải
+token của Railway hay Render. Lab này không cần token của platform ở bất cứ
+đâu — trừ phần bonus CI/CD, và khi đó nó nằm trong GitHub Secrets chứ không
+nằm trong `.env`.
+
+Nếu token trên cloud khác token bạn dùng ở máy thì điền token trên cloud —
+test gọi vào bản deploy, không gọi vào máy bạn.
 
 ### Không deploy được?
 
