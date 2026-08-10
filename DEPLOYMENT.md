@@ -18,8 +18,8 @@
 
 | Mục | Nội dung |
 |-----|----------|
-| Public URL | http://localhost:8000 |
-| Platform | Railway (Phương án dự phòng) |
+| Public URL | https://day12-2a202601020-kieuhongphong-production.up.railway.app |
+| Platform | Railway |
 | Ngày deploy | 2026-08-10 |
 
 ## Biến Môi Trường Đã Set Trên Cloud
@@ -42,18 +42,18 @@ Thay `<URL>` bằng Public URL ở trên:
 
 ```bash
 # 1. Liveness — mong đợi 200 {"status":"ok"}
-curl -i http://localhost:8000/healthz
+curl -i https://day12-2a202601020-kieuhongphong-production.up.railway.app/healthz
 
 # 2. Readiness — mong đợi 200 {"status":"ready"} (đã nối được Redis)
-curl -i http://localhost:8000/readyz
+curl -i https://day12-2a202601020-kieuhongphong-production.up.railway.app/readyz
 
 # 3. Không có token — mong đợi 401 kèm header WWW-Authenticate
-curl -i -X POST http://localhost:8000/chat \
+curl -i -X POST https://day12-2a202601020-kieuhongphong-production.up.railway.app/chat \
   -H "Content-Type: application/json" \
   -d '{"message":"Hello"}'
 
 # 4. Có token — mong đợi 200 kèm câu trả lời
-curl -i -X POST http://localhost:8000/chat \
+curl -i -X POST https://day12-2a202601020-kieuhongphong-production.up.railway.app/chat \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $API_TOKEN" \
   -H "X-Client-Id: sv-test" \
@@ -61,7 +61,7 @@ curl -i -X POST http://localhost:8000/chat \
 
 # 5. Rate limit — gọi 15 lần, những lần cuối phải trả 429
 for i in $(seq 1 15); do
-  curl -s -o /dev/null -w "%{http_code} " -X POST http://localhost:8000/chat \
+  curl -s -o /dev/null -w "%{http_code} " -X POST https://day12-2a202601020-kieuhongphong-production.up.railway.app/chat \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer $API_TOKEN" \
     -H "X-Client-Id: sv-test" \
@@ -98,5 +98,5 @@ Không đăng ký được tài khoản cloud? Vẫn nộp được bài, nhưng
 5. Ghi rõ lý do không deploy được vào phần dưới đây:
 
 ```
-Dùng phương án dự phòng vì đang chấm điểm / chạy test môi trường Local
+(Xóa vì đã deploy thành công)
 ```
