@@ -45,16 +45,13 @@ class ChatStore:
         return f"chat:{client_id}"
 
     def ping(self) -> bool:
-        """Redis có trả lời không? Dùng cho endpoint /readyz.
-
-        TODO (CP4): gọi ``self.client.ping()`` trong try/except.
-        Trả ``True`` nếu thành công, ``False`` nếu có bất kỳ Exception nào
-        (mất mạng, sai mật khẩu, Redis chưa khởi động...).
-        """
+        """Redis có trả lời không? Dùng cho endpoint /readyz."""
         try:
             self.client.ping()
             return True
-        except Exception:
+        except Exception as e:
+            import sys
+            print(f"Redis ping failed: {e.__class__.__name__}: {e}", file=sys.stderr)
             return False
 
     def add_turn(self, client_id: str, role: str, content: str) -> None:
