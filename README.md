@@ -315,3 +315,4 @@ Nộp **link repository** lên codelab. Repo phải ở chế độ public.
 - [ ] Không còn `NotImplementedError` nào trong `app/`
 - [ ] Có commit ở nhiều mốc thời gian, không phải một commit duy nhất
 - [ ] *(Bonus)* `.github/workflows/ci.yml` chạy xanh, README có badge `passing`
+ 
